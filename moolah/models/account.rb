@@ -20,26 +20,20 @@ class Account
 
   def purchases()
     sql = "SELECT * FROM purchases WHERE acc_id = #{@id}"
-    purchases = SqlRunner.run(sql)
-    result = purchases.map{ |p| Purchase.new(p) }
-    return result
+    return Purchase.map_items(sql)
   end
 
   def self.all()
     sql = "SELECT * FROM accounts"
-    accounts = SqlRunner.run(sql)
-    result = accounts.map { |a| Account.new(a) }
-    return result
+    return Account.map_items(sql)
   end
 
   def self.find()
     sql = "SELECT * FROM accounts WHERE id = #{id}"
-    result = SqlRunner.run(sql)
-    account = Account.new(result.first)
-    return account
+    return Account.map_item(sql)
   end
 
-  def self.update()
+  def self.update(options)
     sql = "UPDATE accounts SET
     acc_num =  #{options['acc_num']},
     acc_name = '#{options['acc_name']}',
@@ -48,14 +42,14 @@ class Account
     SqlRunner.run(sql)
   end
 
-  def self.destory()
+  def self.destory(id)
     sql = "DELETE FROM accounts WHERE id = #{id}"
     SqlRunner.run(sql)
   end
 
   def self.map_items(sql)
-    account = SqlRunner.run(sql)
-    result = account.map{ |account| Account.new(account) }
+    accounts = SqlRunner.run(sql)
+    result = accounts.map { |account| Account.new(account) }
     return result
   end
 
