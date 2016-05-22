@@ -1,5 +1,5 @@
 #NEW
-get 'accounts/new' do
+get '/accounts/new' do
   erb(:'account/new')
 end
 
@@ -35,7 +35,7 @@ put '/accounts/:id' do
 end
 
 #DELETE
-delete 'accounts/:id' do
+delete '/accounts/:id' do
   Account.destroy(params[:id])
   redirect to("/accounts")
 end
