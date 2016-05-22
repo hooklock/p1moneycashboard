@@ -10,8 +10,8 @@ class Merchant
   end
 
   def save()
-    sql = "INSERT INTO merchats (mer_name) VALUES ('#{@mer_name}') RETURNING *"
-    merchant = SqlRunner.run(sql)
+    sql = "INSERT INTO merchants (mer_name) VALUES ('#{@mer_name}') RETURNING *"
+    merchant = SqlRunner.run(sql).first
     result = Merchant.new(merchant)
     return result
   end
@@ -26,7 +26,7 @@ class Merchant
     return Merchant.map_items(sql)
   end
 
-  def self.find()
+  def self.find(id)
     sql = "SELECT * FROM merchants WHERE id = #{id}"
     return Merchant.map_item(sql)
   end
@@ -38,6 +38,11 @@ class Merchant
 
   def self.destroy(id)
     sql = "DELETE FROM merchants WHERE id = #{id}"
+    SqlRunner.run(sql)
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM merchants"
     SqlRunner.run(sql)
   end
 

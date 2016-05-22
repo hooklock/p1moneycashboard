@@ -6,13 +6,13 @@ class Account
 
   def initialize(options)
     @id = options['id'].to_i
-    @acc_num = options['acc_num'].to_i
+    @acc_num = options['acc_num']
     @acc_name = options['acc_name']
     @balance = options['balance'].to_i
   end
 
   def save()
-    sql = "INSERT INTO accounts (acc_num, acc_name, balance) VALUES ('#{@acc_num}', '#{@acc_name}', '#{@balance}') RETURNING *"
+    sql = "INSERT INTO accounts (acc_num, acc_name, balance) VALUES ('#{@acc_num}', '#{@acc_name}', #{@balance}) RETURNING *"
     account = SqlRunner.run(sql).first
     result = Account.new(account)
     return result
@@ -28,7 +28,7 @@ class Account
     return Account.map_items(sql)
   end
 
-  def self.find()
+  def self.find(id)
     sql = "SELECT * FROM accounts WHERE id = #{id}"
     return Account.map_item(sql)
   end
@@ -44,6 +44,11 @@ class Account
 
   def self.destory(id)
     sql = "DELETE FROM accounts WHERE id = #{id}"
+    SqlRunner.run(sql)
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM accounts"
     SqlRunner.run(sql)
   end
 

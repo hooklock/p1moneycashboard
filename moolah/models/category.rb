@@ -2,29 +2,24 @@ require_relative('../db/sql_runner')
 
 class Category
 
-  attr_reader(:id, :cat_name, :pur_id)
+  attr_reader(:id, :cat_name, :budget)
 
   def initialize(options)
     @id = options['id'].to_i
     @cat_name = options['cat_name']
-    @pur_id = options['pur_name']
+    @budget = options['budget']
   end
 
   def save()
-    sql = "INSERT INTO categories (cat_name, pur_id) VALUES ('#{@cat_name}', #{@pur_id}) RETURNING *"
-    category = SqlRunner.run(sql)
+    sql = "INSERT INTO categories (cat_name, budget) VALUES ('#{@cat_name}', #{@budget}) RETURNING *"
+    category = SqlRunner.run(sql).first
     result = Category.new(category)
     return result
   end
 
   def purchases()
-    sql = "SELECT * FROM purchases WHERE id = #{@pur_id}"
+    sql = "SELECT * FROM purchases WHERE cat_id = #{@id}"
     return Purchase.map_items(sql)
-  end
-
-  def budget()
-    sql = "SELECT * FROM budgets WHERE cat_id =  #{@id}"
-    return Budget.map_item(sql)
   end
 
   def self.all()
@@ -32,7 +27,7 @@ class Category
     return Category.map_items(sql)
   end
 
-  def self.find()
+  def self.find(id)
     sql = "SELECT * FROM categories WHERE id = #{id}"
     return Category.map_item(sql)
   end
@@ -40,13 +35,18 @@ class Category
   def self.update(options)
     sql = "UPDATE categories SET
     cat_name = '#{options['cat_name']}',
-    pur_id = #{options['pur_id']}
+    budget = #{options['budget']}
     WHERE id = #{options['id']}"
     SqlRunner.run(sql)
   end
 
   def self.destroy(id)
     sql = "DELETE FROM categories WHERE id = #{id}"
+    SqlRunner.run(sql)
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM categories"
     SqlRunner.run(sql)
   end
 
