@@ -1,0 +1,11 @@
+<h2>Transaction Type: <%= @category.cat_name() %></h2>
+<hr>
+<b>Spend Limit:</b> £<%= '%.2f'% @category.budget %>
+<hr>
+<a href="/categories/<%= @category.id %>/edit"><br><br>Click Here</a> to <b>EDIT</b> this Category <br>
+<br>
+Or <br><br>
+<form action="/categories/<%= @category.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Category">
+</form>

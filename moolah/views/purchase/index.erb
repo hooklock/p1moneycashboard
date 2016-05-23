@@ -1,0 +1,22 @@
+<h2>All Transactions</h2>
+
+  <% @purchases.each do |purchase| %>
+  <table border="1" style="width:50%">
+    <tr>
+      <th>Date</th>
+      <th>Merchant</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Account</th>
+    </tr>
+    <tr>
+      <td><a href="/purchases/<%=purchase.id %>"><%= purchase.nice_date(purchase.pur_date) %></a></td>
+      <td><%= purchase.merchant.mer_name %></td>
+      <td><%= purchase.category.cat_name %></td>
+      <td><%= purchase.description %></td>
+      <td>£<%= '%.2f'% purchase.pur_amount %></td>
+      <td><%= purchase.account.acc_name %></td>
+    </tr>
+  </table>
+  <% end %>

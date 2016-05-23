@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require('date')
 
 class Purchase
 
@@ -6,8 +7,8 @@ class Purchase
 
   def initialize(options)
     @id = options['id'].to_i
-    @pur_date = options['pur_date']
-    @pur_amount = options['pur_amount'].to_i
+    @pur_date = Date.parse(options['pur_date'])
+    @pur_amount = options['pur_amount'].to_f
     @description = options['description']
     @mer_id = options['mer_id'].to_i
     @acc_id = options['acc_id'].to_i
@@ -32,8 +33,12 @@ class Purchase
   end
 
   def category()
-    sql = "SELECT * FROM categories WHERE pur_id = #{@id}"
+    sql = "SELECT * FROM categories WHERE id = #{@cat_id}"
     return Category.map_item(sql)
+  end
+
+  def nice_date(date)
+    date.strftime("%e %B %Y")
   end
 
   def self.all()
@@ -54,7 +59,7 @@ class Purchase
     mer_id = #{options['mer_id']},
     acc_id = #{options['acc_id']},
     cat_id = #{options['cat_id']}
-    WHERE id = #{options{'id'}}"
+    WHERE id = #{options['id']}"
     SqlRunner.run(sql)
   end
 

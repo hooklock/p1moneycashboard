@@ -1,0 +1,9 @@
+<h2><%= @merchant.mer_name() %></h2>
+
+<a href="/merchants/<%= @merchant.id %>/edit"><br><br>Click Here</a> to <b>EDIT</b> this Merchant <br>
+<br>
+Or <br><br>
+<form action="/merchants/<%= @merchant.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Merchant">
+</form>

@@ -8,7 +8,7 @@ class Account
     @id = options['id'].to_i
     @acc_num = options['acc_num']
     @acc_name = options['acc_name']
-    @balance = options['balance'].to_i
+    @balance = options['balance'].to_f
   end
 
   def save()
@@ -42,7 +42,7 @@ class Account
     SqlRunner.run(sql)
   end
 
-  def self.destory(id)
+  def self.destroy(id)
     sql = "DELETE FROM accounts WHERE id = #{id}"
     SqlRunner.run(sql)
   end

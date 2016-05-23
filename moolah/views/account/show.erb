@@ -1,0 +1,12 @@
+<h2><%= @account.acc_name() %> Account</h2>
+<hr>
+<b>Account Number:</b> <%= @account.acc_num() %><br><br>
+<b>Current Balance:</b> £<%= '%.2f'% @account.balance %>
+<hr>
+<a href="/accounts/<%= @account.id %>/edit"><br><br>Click Here</a> to <b>EDIT</b> this account <br>
+<br>
+Or <br><br>
+<form action="/accounts/<%= @account.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Account">
+</form>

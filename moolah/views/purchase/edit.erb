@@ -1,0 +1,49 @@
+<h2>Edit Transaction</h2>
+
+  <form action="/purchases/<%= @purchase.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+
+    <label for="acc_name">Account:</label>
+    <select name="acc_id">
+      <% @accounts.each do |account| %>
+      <option value="<%= account.id %>" <%= 'selected' if @purchase.acc_id == account.id %> ><%= account.acc_name %></option>
+      <% end %>
+    </select>
+
+    <br>
+
+    <label for="pur_date">Date:</label>
+    <input type="date" name="pur_date" value="<%= @purchase.pur_date %>">
+
+    <br>
+
+    <label for="mer_name">Merchant:</label>
+    <select name="mer_id">
+      <% @merchants.each do |merchant| %>
+        <option value="<%= merchant.id %>" <%= 'selected' if @purchase.mer_id == merchant.id  %> ><%= merchant.mer_name %></option>
+      <% end %>
+    </select>
+
+    <br>
+
+    <label for="description">Details:</label>
+    <input type="text" name="description" value="<%= @purchase.description %>">
+
+    <br>
+
+    <label for="cat_name">Type:</label>
+    <select name="cat_id">
+      <% @categories.each do |category| %>
+        <option value="<%= category.id %>" <%= 'selected' if @purchase.cat_id == category.id %> ><%= category.cat_name %></option>
+      <% end %>
+    </select>
+
+    <br>
+
+    <label for="pur_amount">Amount:</label>
+    <input type="currency" name="pur_amount" value="<%= '%.2f'% @purchase.pur_amount %>">
+
+    <br>
+    
+    <input type="submit" name="Update Transaction">
+  </form>

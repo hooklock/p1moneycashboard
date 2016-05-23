@@ -1,0 +1,8 @@
+<h2>Account list</h2>
+
+  <% @accounts.each do |account| %>
+    <b>Account Handle:</b> <a href="/accounts/<%= account.id %>"><%= account.acc_name() %></a><br>
+    <b>Account Number:</b> <%= account.acc_num() %><br>
+    <b>Current Balance:</b> £<%= '%.2f'% account.balance %>
+    <hr>
+  <% end %>

@@ -1,0 +1,8 @@
+<h2>Transaction Types</h2>
+<hr>
+
+  <% @categories.each do |category| %>
+    <b>Transaction Type:</b> <a href="/categories/<%= category.id %>"><%= category.cat_name() %></a><br><br>
+    <b>Spend Limit:</b> £<%= '%.2f'% category.budget %>
+    <hr>
+  <% end %>
