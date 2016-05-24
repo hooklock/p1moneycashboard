@@ -39,3 +39,10 @@ delete '/merchants/:id' do
   Merchant.destroy(params[:id])
   redirect to("/merchants")
 end
+
+get '/merchants/:id/transactions' do
+  @merchant = Merchant.find(params[:id])
+  @purchases = Merchant.purchases(params[:id])
+  @analysis = Analysis.new(@purchases)
+  erb(:'merchant/transaction')
+end

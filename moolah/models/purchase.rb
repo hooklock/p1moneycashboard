@@ -46,6 +46,12 @@ class Purchase
     return Purchase.map_items(sql)
   end
 
+  # def self.total()
+  #   @purchases = Purchase.all
+  #   total = @purchases.inject(0){ |sum, purchase| sum + purchase.pur_amount}
+  #   return total.round(2)
+  # end
+
   def self.find(id)
     sql = "SELECT * FROM purchases WHERE id = #{id}"
     return Purchase.map_item(sql)
@@ -85,5 +91,3 @@ class Purchase
   end
 
 end
-
-

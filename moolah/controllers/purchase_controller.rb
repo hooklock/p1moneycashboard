@@ -9,6 +9,7 @@ end
 #INDEX
 get '/purchases' do
   @purchases = Purchase.all()
+  @analysis = Analysis.new(@purchases)
   erb(:'/purchase/index')
 end
 

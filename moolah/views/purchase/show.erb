@@ -1,13 +1,33 @@
 <h3>Transaction Details</h3>
+
 <hr>
+
   <p>On <b><i><%= @purchase.nice_date(@purchase.pur_date) %></i></b> you bought <b><i><%= @purchase.description %></i></b> from <b><i><%= @purchase.merchant.mer_name %></i></b>. The cost was <b><i>£<%= '%.2f'% @purchase.pur_amount %></i></b> and has been allocated as a <b><i><%= @purchase.category.cat_name %></i></b> transaction type, paid from your <b><i><%= @purchase.account.acc_name %></i></b> account.</p>
-  <br><br>
-  <a href="/purchases/<%= @purchase.id %>/edit">Click Here</a> to <b>EDIT</b> this transaction
+
+  <br>
+  
+  <h4>Options:</h4>
+
+  <a href="/">Go to the Homepage</a>
+  
   <br>
   <br>
-  Or
+
+  <a href="/purchases">Show list of Transactions</a>
+
   <br>
   <br>
+
+  <a href="/purchases/<%= @purchase.id %>/edit">Edit this Transaction</a>
+  
+  <br>
+  <br>
+  
+  Udderwise if this was added by mistake, you can delete the transaction by clicking the button below.
+  
+  <br>
+  <br>
+  
   <form action="/purchases/<%= @purchase.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete Transaction">

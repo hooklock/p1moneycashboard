@@ -2,12 +2,19 @@
 
 <form action="/categories/<%= @category.id %>" method="post">
   <input type="hidden" name="_method" value="put">
+
   <label for="cat_name">Category Name:</label>
   <input type="text" name="cat_name" value="<%= @category.cat_name %>">
-  <br><br>
+  
+  <br>
+  <br>
+  
   <label for="budget">Spend Limit:</label>
   <input type="currency" name="budget" value="<%= '%.2f' % @category.budget %>">
-  <br><br>
+  
+  <br>
+  <br>
+  
   <input type="submit" value="Update Transaction Type">
 
 </form>

@@ -16,8 +16,8 @@ class Merchant
     return result
   end
 
-  def purchases()
-    sql = "SELECT * FROM purchases WHERE mer_id = #{@id}"
+  def self.purchases(id)
+    sql = "SELECT * FROM purchases WHERE mer_id = #{id}"
     return Purchase.map_items(sql)
   end
 

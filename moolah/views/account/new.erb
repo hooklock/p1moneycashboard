@@ -1,14 +1,33 @@
 <div class="account">
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/accounts">List of Accounts</a></li>
+      </ul>
+    </nav>
   
   <h2>Add a new Account</h2>
 
   <form action="/accounts" method="post">
+
     <label for="acc_num">Account Number:</label>
     <input type="text" name="acc_num">
-    <label for="acc_name">Account Handle:</label>
+
+    <br>
+    <br>
+
+    <label for="acc_name">Account Nickname:</label>
     <input type="text" name="acc_name">
+    
+    <br>
+    <br>
+
     <label for="balance">Opening Balance:</label>
     <input type="currency" name="balance">
+
+    <br>
+    <br>
 
     <input type="submit" value="Add Account">
   </form>

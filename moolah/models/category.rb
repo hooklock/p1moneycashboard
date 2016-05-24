@@ -17,8 +17,8 @@ class Category
     return result
   end
 
-  def purchases()
-    sql = "SELECT * FROM purchases WHERE cat_id = #{@id}"
+  def self.purchases(id)
+    sql = "SELECT * FROM purchases WHERE cat_id = #{id}"
     return Purchase.map_items(sql)
   end
 

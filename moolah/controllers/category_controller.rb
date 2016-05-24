@@ -39,3 +39,10 @@ delete '/categories/:id' do
   Category.destroy(params[:id])
   redirect to("/categories")
 end
+
+get '/categories/:id/transactions' do
+  @category = Category.find(params[:id])
+  @purchases = Category.purchases(params[:id])
+  @analysis = Analysis.new(@purchases)
+  erb(:'category/transaction')
+end

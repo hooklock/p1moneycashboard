@@ -1,38 +1,75 @@
 <div class="purchase">
 
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/purchases">List of Transactions</a></li>
+      </ul>
+    </nav>
+
   <h2>Add a new Transaction</h2>
 
   <form action="/purchases" method="post">
     <label for="acc_name">Select Account:</label>
     <select name="acc_id">
+      
       <% @accounts.each do |account| %>
+    
         <option value="<%= account.id %>"><%= account.acc_name %></option>
+    
       <% end %>
+    
     </select>
+    
     <br>
+    <br>
+    
     <label for="pur_date">Date of Transaction:</label>
     <input type="date" name="pur_date">
+    
     <br>
+    <br>
+    
     <label for="mer_name">Select Merchant:</label>
     <select name="mer_id">
+    
       <% @merchants.each do |merchant| %>
+    
         <option value="<%= merchant.id %>"><%= merchant.mer_name %></option>
+    
       <% end %>
+    
     </select>
+    
     <br>
+    <br>
+    
     <label for="description">Transaction Details:</label>
     <input type="text" name="description">
+    
     <br>
+    <br>
+    
     <label for="cat_name">Transaction Type:</label>
     <select name="cat_id">
+    
       <% @categories.each do |category| %>
+    
         <option value="<%= category.id %>"><%= category.cat_name %></option>
+    
       <% end %>
+    
     </select>
+    
     <br>
+    <br>
+    
     <label for="pur_amount">Transaction Amount:</label>
     <input type="currency" name="pur_amount">
+    
     <br>
+    <br>
+    
     <input type="submit" name="Add Transaction">
   </form>
   

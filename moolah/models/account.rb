@@ -18,8 +18,8 @@ class Account
     return result
   end
 
-  def purchases()
-    sql = "SELECT * FROM purchases WHERE acc_id = #{@id}"
+  def self.purchases(id)
+    sql = "SELECT * FROM purchases WHERE acc_id = #{id}"
     return Purchase.map_items(sql)
   end
 
@@ -50,6 +50,11 @@ class Account
   def self.delete_all()
     sql = "DELETE FROM accounts"
     SqlRunner.run(sql)
+  end
+
+  def self.total
+    accounts = Account.all().map {|account| account.balance}
+    return accounts.inject(0){ |sum, balance| sum + balance }
   end
 
   def self.map_items(sql)

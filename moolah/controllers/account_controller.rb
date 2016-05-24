@@ -6,6 +6,7 @@ end
 #INDEX
 get '/accounts' do
   @accounts = Account.all()
+  @balance = Account.total
   erb(:'/account/index')
 end
 
@@ -38,4 +39,11 @@ end
 delete '/accounts/:id' do
   Account.destroy(params[:id])
   redirect to("/accounts")
+end
+
+get '/accounts/:id/transactions' do
+  @account = Account.find(params[:id])
+  @purchases = Account.purchases(params[:id])
+  @analysis = Analysis.new(@purchases)
+  erb(:'account/transaction')
 end

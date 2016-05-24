@@ -1,22 +1,39 @@
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/purchases/new">Create a new Transaction</a></li>
+    </ul>
+  </nav>
+
 <h2>All Transactions</h2>
 
-  <% @purchases.each do |purchase| %>
   <table border="1" style="width:50%">
-    <tr>
+    <tr align="left">
       <th>Date</th>
       <th>Merchant</th>
       <th>Type</th>
       <th>Description</th>
-      <th>Amount</th>
       <th>Account</th>
+      <th style="text-align:right">Amount</th>
     </tr>
+    <% @purchases.each do |purchase| %>
     <tr>
       <td><a href="/purchases/<%=purchase.id %>"><%= purchase.nice_date(purchase.pur_date) %></a></td>
       <td><%= purchase.merchant.mer_name %></td>
       <td><%= purchase.category.cat_name %></td>
       <td><%= purchase.description %></td>
-      <td>£<%= '%.2f'% purchase.pur_amount %></td>
       <td><%= purchase.account.acc_name %></td>
+      <td style="text-align:right">£<%= '%.2f'% purchase.pur_amount %></td>
+      
     </tr>
+    <% end %>
+    <tfooter>
+      <tr>
+        <td><b>Total</b></td>
+        <td style="text-align:right" colspan="5"><b>£<%= @analysis.total_purchases %></b></td>
+      </tr>
+    </tfooter>
   </table>
-  <% end %>
+  
+  
+  

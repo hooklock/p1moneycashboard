@@ -1,0 +1,33 @@
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/categories">Return to Transaction Types</a></li>
+    </ul>
+  </nav>
+
+<h2>Transactions for <%= @category.cat_name() %></h2>
+
+<table border="1" style="width:50%" id="typetable">
+  <tr align="left">
+    <th>Date</th>
+    <th>Merchant</th>
+    <th>Description</th>
+    <th style="text-align:right">Amount</th>
+  </tr>
+  <% @purchases.each do |purchase| %>
+    <tr>
+      <td><%= purchase.nice_date(purchase.pur_date) %></td>
+      <td><%= purchase.merchant.mer_name %></td>
+      <td><%= purchase.description %></td>
+      <td style="text-align:right">£<%= '%.2f'% purchase.pur_amount %></td>
+    </tr>
+  <% end %>
+  <tfooter>
+    <tr>
+      <td>Spend Limit</td>
+      <td>£<%= '%.2f'% @category.budget %></td>
+      <td><b>Total Spent</b></td>
+      <td style="text-align:right"><b>£<%= '%.2f'% @analysis.total_by_type(@category.id) %></b></td>
+    </tr>
+  </tfooter>
+</table>

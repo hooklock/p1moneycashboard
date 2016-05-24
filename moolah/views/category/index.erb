@@ -1,8 +1,21 @@
-<h2>Transaction Types</h2>
-<hr>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/categories/new">Add a new Transaction Type</a></li>
+      </ul>
+    </nav>
 
-  <% @categories.each do |category| %>
-    <b>Transaction Type:</b> <a href="/categories/<%= category.id %>"><%= category.cat_name() %></a><br><br>
-    <b>Spend Limit:</b> £<%= '%.2f'% category.budget %>
-    <hr>
-  <% end %>
+<h2>Transaction Types</h2>
+
+  <table border="1" style="width:20%">
+    <tr style="align:left">
+      <th>Type</th>
+      <th style="text-align:right">Spend Limit</th>
+    </tr>
+    <% @categories.each do |category| %>
+    <tr>
+      <td><a href="/categories/<%= category.id %>"><%= category.cat_name() %></a></td>
+      <td style="text-align:right">£<%= '%.2f'% category.budget %></td>
+    </tr>
+    <% end %>
+  </table>

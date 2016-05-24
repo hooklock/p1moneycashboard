@@ -1,9 +1,33 @@
 <h2><%= @merchant.mer_name() %></h2>
 
-<a href="/merchants/<%= @merchant.id %>/edit"><br><br>Click Here</a> to <b>EDIT</b> this Merchant <br>
-<br>
-Or <br><br>
-<form action="/merchants/<%= @merchant.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Merchant">
-</form>
+<h4>Options:</h4>
+
+  <a href="/merchants/<%= @merchant.id %>/transactions">See a list of transactions for <%= @merchant.mer_name() %></a>
+
+  <br>
+  <br>
+
+  <a href="/merchants">Return to list of Merchants</a>
+  
+  <br>
+  <br>
+
+  <a href="/">Go to the Homepage</a>
+
+  <br>
+  <br>
+
+  <a href="/merchants/<%= @merchant.id %>/edit">Edit this Merchant</a>
+
+  <br>
+  <br>
+
+Udderwise if you are no longer using this Merchant, you can delete the Merchant by clicking the button below.
+
+  <br>
+  <br>
+
+  <form action="/merchants/<%= @merchant.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Merchant">
+  </form>

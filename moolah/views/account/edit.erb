@@ -1,16 +1,26 @@
-<h2>Edit Account</h2>
+<h2>Edit the Account Details here</h2>
 
 <form action="/accounts/<%= @account.id %>" method="post">
   <input type="hidden" name="_method" value="put">
+
   <label for="acc_name">Account Handle:</label>
   <input type="text" name="acc_name" value="<%= @account.acc_name %>">
-  <br><br>
+  
+  <br>
+  <br>
+  
   <label for="acc_num">Account Number:</label>
   <input type="text" name="acc_num" value="<%= @account.acc_num %>">
-  <br><br>
+  
+  <br>
+  <br>
+  
   <label for="balance">Account Balance:</label>
   <input type="currency" name="balance" value="<%= '%.2f' % @account.balance %>">
-  <br><br>
+  
+  <br>
+  <br>
+  
   <input type="submit" value="Update Account Details">
 
 </form>
