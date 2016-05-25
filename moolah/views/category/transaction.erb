@@ -1,13 +1,6 @@
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/categories">Return to Transaction Types</a></li>
-    </ul>
-  </nav>
+<h1>Transactions for <%= @category.cat_name() %></h1>
 
-<h2>Transactions for <%= @category.cat_name() %></h2>
-
-<table border="1" style="width:50%" id="typetable">
+<table class=" center"border="1" style="width:50%" id="typetable">
   <tr align="left">
     <th>Date</th>
     <th>Merchant</th>

@@ -1,33 +1,35 @@
-<nav>
-  <ul>
-    <li><a href="/">Return to Homepage</a></li>
-    <li><a href="/accounts/<%= @account.id %>/edit">Edit this Account</a></li>
-    <li><a href="/accounts/<%= @account.id %>/transactions">See a list of all <%= @account.acc_name() %> Account transactions </a></li>
-    <li><a href="/accounts">Return to the list of Accounts</a></li>
-  </ul>
-</nav>
+<h1><%= @account.acc_name() %> Account</h1>
 
-<h2><%= @account.acc_name() %> Account</h2>
+  <hr>
 
-<hr>
+  <h3>Account Number: <%= @account.acc_num() %></h3>
 
-<strong>Account Number:</strong> <%= @account.acc_num() %>
+  <h3>Current Balance: £<%= '%.2f'% @account.balance %></h3>
 
-<br>
-<br>
+  <hr>
 
-<strong>Current Balance:</strong> £<%= '%.2f'% @account.balance %>
+  <br>
+  <div class="wrapper">
+  <div class="button">
+  <form method="link" action="/accounts/<%= @account.id %>/edit">
+    <input type="submit" value="Edit Account">
+  </form>
+  </div>
 
-<hr>
+  <br>
 
-<br>
+  <div class="button">
+  <form method="link" action="/accounts/<%= @account.id %>/transactions">
+    <input type="submit" value="List Account Transactions">
+  </form>
+  </div>
 
-If you are no longer using this Account, you can delete it by clicking the button below
+<h4>If you are no longer using this Account, you can delete it by clicking the button below</h4>
 
-<br>
-<br>
-
+<div class="button">
 <form action="/accounts/<%= @account.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Account">
+  <input type="submit" value="Delete Account" style="float:left">
 </form>
+</div>
+</div>

@@ -1,53 +1,38 @@
-<nav>
-  <ul>
-    <li><a href="/purchases/<%= @purchase.id %>/edit">Edit this Transaction</a></li>
-    <li><a href="/">Return to Homepage</a></li>
-    <li><a href="/purchases">Return to Transaction List</a></li>
-  </ul>
-</nav>
-
-<h3>Transaction Details</h3>
-
-<hr>
-
-  <strong>Date:</strong> <i><%= @purchase.nice_date(@purchase.pur_date) %></i>
-  <br>
-  <br>
-
-  <strong>Detail:</strong> <i><%= @purchase.description %></i>
-
-  <br>
-  <br>
-
-  <strong>Merchant:</strong> <i><%= @purchase.merchant.mer_name %></i>
-
-  <br>
-  <br>
-
-  <strong>Amount:</strong> <i>£<%= '%.2f'% @purchase.pur_amount %></i>
-
-  <br>
-  <br>
-
-  <strong>Type:</strong> <i><%= @purchase.category.cat_name %></i>
-
-  <br>
-  <br>
-
-  <strong>Account:</strong> <i><%= @purchase.account.acc_name %></i>
-
-  <br>
+<h1>Transaction Details</h1>
   <hr>
   
-  <strong>If this was added by mistake, you can delete the transaction by clicking the button below.</strong>
+  <h3>Date: <i><%= @purchase.nice_date(@purchase.pur_date) %></i></h3>
+
+  <h3>Detail: <i><%= @purchase.description %></i></h3>
+
+  <h3>Merchant: <i><%= @purchase.merchant.mer_name %></i></h3>
+
+  <h3>Amount: <i>£<%= '%.2f'% @purchase.pur_amount %></i></h3>
+
+  <h3>Type: <i><%= @purchase.category.cat_name %></i></h3>
+
+  <h3>Account: <i><%= @purchase.account.acc_name %></i></h3>
+
+  <hr>
+
+  <div class'"wrapper">
+    <div class="button">
+      <form method="link" action="/purchases/<%= @purchase.id %>/edit">
+        <input type="submit" value="Edit this Transaction">
+      </form>
+    </div>
+
+  <h4>If this was added by mistake, you can delete the transaction by clicking the button below.</h4>
+
+    <div class="button">
+      <form action="/purchases/<%= @purchase.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete Transaction">
+      </form>
+    </div>
+  </div>
   
-  <br>
-  <br>
   
-  <form action="/purchases/<%= @purchase.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Transaction">
-  </form>
 
 
 

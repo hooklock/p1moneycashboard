@@ -1,6 +1,7 @@
 <h2>Edit Transaction</h2>
 
   <form action="/purchases/<%= @purchase.id %>" method="post">
+  <div class="form">
     <input type="hidden" name="_method" value="put">
 
     <label for="acc_name">Account:</label>
@@ -58,4 +59,5 @@
     <br>
     
     <input type="submit" name="Update Transaction">
+  </div>
   </form>

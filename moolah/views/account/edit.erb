@@ -1,6 +1,7 @@
-<h2>Edit the Account Details here</h2>
+<h1>Edit the Account Details here</h1>
 
 <form action="/accounts/<%= @account.id %>" method="post">
+  <div class="form">
   <input type="hidden" name="_method" value="put">
 
   <label for="acc_name">Account Handle:</label>
@@ -22,5 +23,5 @@
   <br>
   
   <input type="submit" value="Update Account Details">
-
+  </div>
 </form>

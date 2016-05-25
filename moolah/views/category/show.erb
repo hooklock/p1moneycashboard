@@ -1,34 +1,36 @@
-<h2>Transaction Type: <%= @category.cat_name() %></h2>
+<h1>Transaction Type: <%= @category.cat_name() %></h1>
 
-<br>
-<br>
+  <h3>Spend Limit: £<%= '%.2f'% @category.budget %></h3>
+  <hr>
 
-<b>Spend Limit:</b> £<%= '%.2f'% @category.budget %>
-<hr>
+  <div class="wrapper">
+    <div class="button">
+      <form method="link" action="/categories/<%= @category.id %>/transactions">
+        <input type="submit" value="<%= @category.cat_name() %> Transaction List">
+      </form>
+    </div>
 
-<h4>Options:</h4>
+    <br>
 
-  <a href="/categories/<%= @category.id %>/transactions">See a list of all <%= @category.cat_name() %> transactions</a>
+    <div class="button">
+      <form method="link" action="/categories/<%= @category.id %>/edit">
+        <input type="submit" value="Edit this category">
+      </form>
+    </div>
 
-  <br>
-  <br>
+    <h4>If you are no longer using this transaction type, you can delete it by clicking the button below</h4>
 
-  <a href="/">Go to the Homepage</a>
+    <div class="button">
+      <form action="/categories/<%= @category.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete Category">
+      </form>
+    </div>
+  </div>
 
-  <br>
-  <br>
+  
+  
 
-  <a href="/categories/<%= @category.id %>/edit">Edit this Category</a>
+  
 
-  <br>
-  <br>
-
-  Udderwise, if you are no longer using this transaction type, you can delete it by clicking the button below
-
-  <br>
-  <br>
-
-  <form action="/categories/<%= @category.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Category">
-  </form>
+  

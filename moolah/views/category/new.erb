@@ -1,29 +1,21 @@
-<div class="category">
+<h1>Add a new Transaction Type</h1>
+
+  <h2>Fill in the form below to add a new Transaction Type and set a Spend Limit</h2>
   
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/categories">List of Transaction Types</a></li>
-      </ul>
-    </nav>
+    <form action="/categories" method="post">
+    <div class="form">
+      <label for="cat_name">Category Name:</label>
+      <input type="text" name="cat_name">
+      
+      <br>
+      <br>
 
-  <h2>Add a new Transaction Type</h2>
-
-  <form action="/categories" method="post">
-
-    <label for="cat_name">Category Name:</label>
-    <input type="text" name="cat_name">
-
-    <br>
-    <br>
-
-    <label for="budget">Set Spend Limit:</label>
-    <input type="currency" name="budget">
+      <label for="budget">Set Spend Limit:</label>
+      <input type="currency" name="budget">
     
-    <br>
-    <br>
+      <br>
+      <br>
     
-    <input type="submit" value="Add Category">
-  </form>
-
-</div>
+      <input type="submit" value="Add Category">
+    </form>
+    </div>

@@ -1,25 +1,32 @@
-<h2>Account list</h2>
+<h1>Account list</h1>
 
-  <table class="center "border="3" style="width:50%">
-    <tr align="left">
-      <th bgcolor="#493267"><font color="#fff">Nickname</font></th>
-      <th>Number</th>
-      <th style="text-align:right">Balance</th>
-    </tr>
-    <% @accounts.each do |account| %>
-    <tr>
-      <td><a href="/accounts/<%= account.id %>"><%= account.acc_name() %></a></td>
-      <td><%= account.acc_num() %></td>
-      <td style="text-align:right">£<%= '%.2f'% account.balance %></td>
-    </tr>
-    <% end %>
-    <tfoot>
-      <tr>
-        <td><b>Total</b></td>
-        <td style="text-align:right" colspan="2"><b>£<%= @balance %></b></td>
+  <h2>This table displays a list of your bank accounts and how much moolah you have in them.
+
+  <br>
+  <br>
+
+  Click on a Nickname to see more details.</h2>
+
+    <table class="center "border="3" style="width:50%">
+      <tr align="left">
+        <th bgcolor="#493267"><font color="#fff">Nickname</font></th>
+        <th>Number</th>
+        <th style="text-align:right">Balance</th>
       </tr>
-    </tfoot>
-  </table>
+      <% @accounts.each do |account| %>
+      <tr>
+        <td><a href="/accounts/<%= account.id %>"><%= account.acc_name() %></a></td>
+        <td><%= account.acc_num() %></td>
+        <td style="text-align:right">£<%= '%.2f'% account.balance %></td>
+      </tr>
+      <% end %>
+      <tfoot>
+        <tr>
+          <td><b>Total</b></td>
+          <td style="text-align:right" colspan="2"><b>£<%= @balance %></b></td>
+        </tr>
+      </tfoot>
+    </table>
 
   
 

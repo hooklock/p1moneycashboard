@@ -1,6 +1,7 @@
-<h2>Edit Merchant</h2>
+<h1>Edit Merchant</h1>
 
 <form action="/merchants/<%= @merchant.id %>" method="post">
+  <div class="form">
   <input type="hidden" name="_method" value="put">
 
   <label for="mer_name">Merchant Name:</label>
@@ -10,4 +11,5 @@
   <br>
   
   <input type="submit" value="Update Merchant">
+  </div>
 </form>

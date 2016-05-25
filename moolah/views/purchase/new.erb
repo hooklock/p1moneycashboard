@@ -1,17 +1,11 @@
-<div class="purchase">
+<h1>Add a new Transaction</h1>
 
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/purchases">List of Transactions</a></li>
-      </ul>
-    </nav>
+  <h2>Fill in the form below to add a new Transaction</h2>
 
-  <h2>Add a new Transaction</h2>
-
-  <form action="/purchases" method="post">
-    <label for="acc_name">Select Account:</label>
-    <select name="acc_id">
+    <form action="/purchases" method="post">
+    <div class="form">
+      <label for="acc_name">Select Account:</label>
+      <select name="acc_id">
       
       <% @accounts.each do |account| %>
     
@@ -71,6 +65,5 @@
     <br>
     
     <input type="submit" name="Add Transaction">
+  </div>
   </form>
-  
-</div>

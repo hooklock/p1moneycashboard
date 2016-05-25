@@ -1,6 +1,7 @@
-<h2>Edit Transaction Type</h2>
+<h1>Edit Transaction Type</h1>
 
 <form action="/categories/<%= @category.id %>" method="post">
+  <div class="form">
   <input type="hidden" name="_method" value="put">
 
   <label for="cat_name">Category Name:</label>
@@ -16,5 +17,5 @@
   <br>
   
   <input type="submit" value="Update Transaction Type">
-
+  </div>
 </form>
