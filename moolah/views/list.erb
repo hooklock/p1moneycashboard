@@ -1,6 +1,32 @@
-<h2>Transaction Totals</h2>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/accounts">Accounts</a></li>
+      <li><a href="/merchants">Merchants</a></li>
+      <li><a href="/categories">Transaction Types</a></li>
+      <li><a href="/purchases">List of Transactions</a></li>
+    </ul>
+  </nav>
 
-<h3>Sum of all transactions</h3>
+<h2>How are you doing?</h2>
 
-<%=@purchases.total_purchases %>
+<h3>Total by Category</h3>
 
+<table border="2" style="width:50%">
+  <tr align="left">
+    <th>Type</th>
+    <th style="text-align:right">Allowance</th>
+    <th style="text-align:right">Current Spending</th>
+  </tr>
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.cat_name %></td>
+      <td style="text-align:right">£<%= '%.2f'% category.budget %></td>
+      <td style="text-align:right"<%= @analysis.allowance_condition( category.budget, category.id ) %>>
+        £<%= '%.2f'% @analysis.total_category_spend( category.id ) %>    
+      </td>
+    </tr>
+  <% end %>
+
+
+</table>

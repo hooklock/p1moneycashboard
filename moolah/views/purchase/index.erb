@@ -1,6 +1,7 @@
   <nav>
     <ul>
       <li><a href="/">Home</a></li>
+      <li><a href="/artist">Budget Check</a></li>
       <li><a href="/purchases/new">Create a new Transaction</a></li>
     </ul>
   </nav>
@@ -27,12 +28,12 @@
       
     </tr>
     <% end %>
-    <tfooter>
+    <tfoot>
       <tr>
         <td><b>Total</b></td>
         <td style="text-align:right" colspan="5"><b>£<%= @analysis.total_purchases %></b></td>
       </tr>
-    </tfooter>
+    </tfoot>
   </table>
   
   

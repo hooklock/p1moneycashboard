@@ -1,6 +1,7 @@
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
+        <li><a href="/activity">Budget Check</a></li>
         <li><a href="/accounts/new">Create a new Account</a></li>
       </ul>
     </nav>
@@ -20,12 +21,12 @@
       <td style="text-align:right">£<%= '%.2f'% account.balance %></td>
     </tr>
     <% end %>
-    <tfooter>
+    <tfoot>
       <tr>
         <td><b>Total</b></td>
         <td style="text-align:right" colspan="2"><b>£<%= @balance %></b></td>
       </tr>
-    </tfooter>
+    </tfoot>
   </table>
 
   

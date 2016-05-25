@@ -11,6 +11,25 @@ class Analysis
     return total.round(2)
   end
 
+  def total_category_spend( category_id )
+    total = 0
+    @purchases.each do | purchase |
+      if purchase.cat_id == category_id
+        total += purchase.pur_amount
+      end
+    end
+    return total.round(2)
+  end 
+
+  def allowance_condition( budget, cat_id )
+    if ( budget.to_f > total_category_spend( cat_id ) ) 
+      return "class='green'"
+    # elsif (total_category_spend(cat_id) >= (budget.to_f - 100) )
+    #   return "class='orange'"      
+    end
+    return "class='red'"
+  end
+
   def total_by_type(id)
     # purchases = Category.purchases(id)
     total = 0

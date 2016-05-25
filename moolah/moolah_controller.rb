@@ -17,10 +17,11 @@ get '/' do
 end
 
 get('/activity') do
-  @accounts = Account.all()
-  @merchants = Merchant.all()
-  @categories = Category.all()
+  # @category = Category.find(params[:id])
+  # @purchases = Category.purchases(params[:id])
   @purchases = Purchase.all()
+  @categories = Category.all()
+  @analysis = Analysis.new(@purchases)
   erb(:list)
 end
 

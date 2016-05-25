@@ -1,5 +1,6 @@
 body {
   font-family: 'Poiret One', cursive;
+  background-color: #b39eb5;
 }
 
 ul {
@@ -27,10 +28,25 @@ li a:hover {
 }
 
 tr:nth-child(even) {
-  background-color: #7BB3FF;
+  background-color: #fff;
 }
 
 th {
   background-color: #493267;
   color: #FFFFFF;
+}
+
+tfoot {
+  background-color: #493267;
+  color: #FFFFFF;
+}
+
+/* conditional formats */
+
+.green {
+  background-color: #00d27f;
+}
+
+.red {
+  background-color: #fe5757;
 }
