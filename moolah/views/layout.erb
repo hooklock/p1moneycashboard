@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,600italic,700,700italic,400italic' rel='stylesheet' type='text/css'>
-  <title>Moolah!</title>
-  <link rel="stylesheet" type="text/css" href="/css/styles.css">
-</head>
-<body>
-  
-  <main>
-    <%= yield %>
-  </main>
-
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,600italic,700,700italic,400italic' rel='stylesheet' type='text/css'>
+    <title>Moolah!</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  </head>
+  <body>
+    <header>
+      <div id="nav">
+        <div id="nav_wrapper">
+          <ul>
+            <li><a href="/">Home</a></li><li>
+            <a href="/activity">Budget Check</a></li><li>
+            <a href="/accounts">Accounts <img src="/img/dnarrow2.png"></a>
+                <ul>
+                  <li><a href="/accounts/new">Add Account</a></li>
+                </ul>
+            </li><li>
+            <a href="/merchants">Merchants<img src="/img/dnarrow2.png"></a>
+                <ul>
+                  <li><a href="/merchants/new">Add Merchant</a></li>
+                </ul>
+            </li><li>
+            <a href="/categories">Transaction Types <img src="/img/dnarrow2.png"</a>
+                <ul>
+                  <li><a href="/categories/new">Add Transaction Type</a></li>
+                </ul>
+            </li><li>
+            <li><a href="/purchases">All Transactions <img src="/img/dnarrow2.png"</a>
+                <ul>
+                  <li><a href="/purchases/new">Add Transaction</a></li>
+                </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>  
+    <main>
+      <%= yield %>
+    </main>
+  </body>
 </html>

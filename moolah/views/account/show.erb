@@ -1,39 +1,28 @@
+<nav>
+  <ul>
+    <li><a href="/">Return to Homepage</a></li>
+    <li><a href="/accounts/<%= @account.id %>/edit">Edit this Account</a></li>
+    <li><a href="/accounts/<%= @account.id %>/transactions">See a list of all <%= @account.acc_name() %> Account transactions </a></li>
+    <li><a href="/accounts">Return to the list of Accounts</a></li>
+  </ul>
+</nav>
+
 <h2><%= @account.acc_name() %> Account</h2>
 
 <hr>
 
-<b>Account Number:</b> <%= @account.acc_num() %>
+<strong>Account Number:</strong> <%= @account.acc_num() %>
 
 <br>
 <br>
 
-<b>Current Balance:</b> £<%= '%.2f'% @account.balance %>
+<strong>Current Balance:</strong> £<%= '%.2f'% @account.balance %>
 
 <hr>
 
-<h4>Options:</h4>
-
-  <a href="/accounts/<%= @account.id %>/transactions">See a list of all <%= @account.acc_name() %> Account transactions </a>
-
-  <br>
-  <br>
-
-  <a href="/accounts">Return to the list of Accounts</a>
-
-  <br>
-  <br>
-
-  <a href="/">Go to the Homepage</a>
-
-  <br>
-  <br>
-
-  <a href="/accounts/<%= @account.id %>/edit">Edit this Account</a>
-
-<br>
 <br>
 
-Udderwise, if you are no longer using this Account, you can delete it by clicking the button below
+If you are no longer using this Account, you can delete it by clicking the button below
 
 <br>
 <br>

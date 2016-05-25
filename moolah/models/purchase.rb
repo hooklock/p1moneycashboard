@@ -42,7 +42,7 @@ class Purchase
   end
 
   def self.all()
-    sql = "SELECT * FROM purchases"
+    sql = "SELECT * FROM purchases ORDER BY pur_date DESC"
     return Purchase.map_items(sql)
   end
 

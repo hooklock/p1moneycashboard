@@ -17,6 +17,13 @@ end
 post '/purchases' do
   @purchase = Purchase.new(params)
   @purchase.save
+  tmp_acc = Account.find(@purchase.acc_id)
+  if Category.find(@purchase.cat_id).cat_name == "Income"
+    tmp_acc.credit_balance(@purchase.pur_amount)
+  else
+    tmp_acc.debit_balance(@purchase.pur_amount)
+  end
+  tmp_acc.balance_update()
   redirect to('/purchases')
 end
 
@@ -43,6 +50,10 @@ end
 
 #DELETE
 delete '/purchases/:id' do
-  Purchase.destroy(params[:id])
+  pur = Purchase.find(params[:id])
+  tmp_acc = Account.find(pur.acc_id)
+  tmp_acc.credit_balance(pur.pur_amount)
+  tmp_acc.balance_update()
+  Purchase.destroy(pur.id)
   redirect to("/purchases")
 end

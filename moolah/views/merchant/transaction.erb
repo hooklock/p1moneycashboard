@@ -22,12 +22,12 @@
       <td style="text-align:right">£<%= '%.2f'% purchase.pur_amount %></td>
     </tr>
   <% end %>
-  <tfooter>
+  <tfoot>
     <tr>
       <td><b>Total Spent</b></td>
       <td colspan="4" style="text-align:right"><b>£<%= '%.2f'% @analysis.total_by_type(@merchant.id) %></b></td>
     </tr>
-  </tfooter>
+  </tfoot>
 </table>
 
 

@@ -23,8 +23,16 @@ class Account
     return Purchase.map_items(sql)
   end
 
+  def debit_balance(amount)
+    @balance -= amount.to_f 
+  end
+
+  def credit_balance(amount)
+    @balance += amount.to_f
+  end
+
   def self.all()
-    sql = "SELECT * FROM accounts"
+    sql = "SELECT * FROM accounts ORDER BY id"
     return Account.map_items(sql)
   end
 
@@ -40,6 +48,12 @@ class Account
     balance = #{options['balance']}
     WHERE id = #{options['id']}"
     SqlRunner.run(sql)
+  end
+
+  def balance_update()
+    sql = "UPDATE accounts SET balance=#{@balance} WHERE id = #{@id};"
+    SqlRunner.run(sql)
+    return nil
   end
 
   def self.destroy(id)

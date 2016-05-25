@@ -1,21 +1,96 @@
 body {
+  padding: 0;
+  margin: 0;
+  overflow-y: scroll;
   font-family: 'Poiret One', cursive;
-  background-color: #b39eb5;
+  background-image: url("../img/HiCow3.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 80%;
+  background-position: center;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#nav {
   background-color: #373854;
 }
 
-li {
-  float: left;
+#nav_wrapper {
+  width: 960px;
+  margin: 0 auto;
+  text-align: left;
 }
 
-li a {
+#nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+#nav ul li {
+ display: inline-block;
+}
+
+#nav ul li:hover {
+  background-color: #b39eb5;
+}
+
+#nav ul li img {
+  vertical-align: middle;
+  padding-left: 5px;
+}
+
+#nav ul li a,visted {
+  color: #FFFFFF;
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+}
+
+#nav ul li a:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+#nav ul li:hover ul {
+  display: block;
+}
+
+#nav ul ul {
+  display: none;
+  position: absolute;
+  background-color: #b39eb5;
+}
+
+#nav ul ul li {
+  display: block;
+}
+
+#nav ul ul li a,visited {
+  color: #FFFFFF;
+}
+
+#nav ul ul li a:hover {
+  color: #777696;
+}
+ul li a visited {
 display: block;
  color: white;
  text-align: center;
@@ -23,12 +98,13 @@ display: block;
  text-decoration: none;
 }
 
-li a:hover {
-  background-color: #111;
+
+tr {
+  background-color: #efeff2;
 }
 
 tr:nth-child(even) {
-  background-color: #fff;
+  background-color: #aa98a9;
 }
 
 th {
@@ -36,7 +112,7 @@ th {
   color: #FFFFFF;
 }
 
-tfoot {
+tfoot tr {
   background-color: #493267;
   color: #FFFFFF;
 }
